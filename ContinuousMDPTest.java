@@ -105,6 +105,36 @@ public class ContinuousMDPTest {
                     System.out.println("Case 3 Execution Speed = " + ((endTime-startTime)/1000) + " seconds");
                     System.out.println("Test case passed!");
                     break;
+                    
+           case 4:  actions = 100;
+                    cmdpq.startOver();
+                    cmdpq.setTestMode(4);
+
+                    startTime = System.currentTimeMillis();
+                    cmdp = new ContinuousMDP(actions, cmdpq);
+                    endTime = System.currentTimeMillis();
+                    System.out.println("Constructor Execution Speed = " + ((endTime-startTime)/1000) + " seconds");
+
+                    startTime = System.currentTimeMillis();
+                    bestAct = cmdp.optimalPolicyAt(0.23);
+                    endTime = System.currentTimeMillis();
+                    assertEquals(0, bestAct);
+                    System.out.println("Case 1 Execution Speed = " + ((endTime-startTime)/1000) + " seconds");
+                    
+                    startTime = System.currentTimeMillis();
+                    bestAct = cmdp.optimalPolicyAt(0.54);
+                    endTime = System.currentTimeMillis();
+                    assertEquals(50, bestAct);
+                    System.out.println("Case 2 Execution Speed = " + ((endTime-startTime)/1000) + " seconds");
+                    
+                    startTime = System.currentTimeMillis();
+                    bestAct = cmdp.optimalPolicyAt(0.89);
+                    endTime = System.currentTimeMillis();
+                    assertEquals(76, bestAct);
+                    System.out.println("Case 3 Execution Speed = " + ((endTime-startTime)/1000) + " seconds");
+                    System.out.println("Test case passed!");
+                    break;
+
         }
                     
                     

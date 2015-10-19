@@ -40,6 +40,15 @@ public class ContinuousMDPNextStateQuery {
                     if ((loc >= .08) && (loc <= .12) && (i == 5)) update[1] = 55;
                     break;
 
+            case 4: loc += .001;
+                    if (loc >= 1) loc = 0;
+                    update[0] = loc;
+                    update[1] = -i*.1;
+                    
+                    if ((loc >= .45) && (loc <= .75) && (i == 50)) update[1] = 100;
+                    if ((loc >= .85) && (loc <= .95) && (i == 76)) update[1] = 100;
+                    break;
+                 
         }
                     
         return update;
